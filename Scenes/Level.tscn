@@ -1,22 +1,28 @@
 [gd_scene load_steps=18 format=3 uid="uid://canllvum7afrs"]
 
-[ext_resource type="PackedScene" uid="uid://bqwa1p5arkl7b" path="res://Assets/ppppioiii.glb" id="1_p3olw"]
+[ext_resource type="PackedScene" uid="uid://bqwa1p5arkl7b" path="res://Assets/props/ppppioiii.glb" id="1_p3olw"]
 [ext_resource type="PackedScene" uid="uid://cayvn82kbvy80" path="res://Scenes/Player.tscn" id="2_3lv6i"]
 [ext_resource type="AudioStream" uid="uid://bsye3c8o7po2p" path="res://Audio/vibrating-in-the-wind.mp3" id="3_mud4v"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qk688"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-sky_energy_multiplier = 0.9
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kdsyy"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0.298168, 0.0862672, 0.0120385, 1)
+sky_curve = 0.0891906
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.0993556, 0.0169204, 0.000240822, 1)
 
-[sub_resource type="Sky" id="Sky_rk34g"]
-sky_material = SubResource("ProceduralSkyMaterial_qk688")
+[sub_resource type="Sky" id="Sky_m3ngn"]
+sky_material = SubResource("ProceduralSkyMaterial_kdsyy")
 
-[sub_resource type="Environment" id="Environment_n7n8a"]
+[sub_resource type="Environment" id="Environment_n5sb6"]
 background_mode = 2
-sky = SubResource("Sky_rk34g")
+sky = SubResource("Sky_m3ngn")
+ambient_light_source = 3
+ambient_light_sky_contribution = 0.99
+ambient_light_energy = 4.49
 tonemap_mode = 2
-glow_enabled = true
+ssr_enabled = true
+sdfgi_bounce_feedback = 1.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qyp4h"]
 size = Vector3(29.5802, 0.164429, 29.418)
@@ -54,7 +60,7 @@ size = Vector3(1.35211, 0.0964355, 1.3374)
 [node name="Map" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_n7n8a")
+environment = SubResource("Environment_n5sb6")
 
 [node name="Floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.59767, 102.408, -4.07637)
@@ -125,9 +131,6 @@ shape = SubResource("BoxShape3D_shrun")
 [node name="ppppioiii" parent="CSGCombiner3D" instance=ExtResource("1_p3olw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.974, 102.401, -12.81)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.546267, -0.817958, -0.180382, -0.836386, -0.544313, -0.064668, -0.0452885, 0.186195, -0.981468, -7.36414, 100, -29)
-
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_3lv6i")]
 transform = Transform3D(0.93358, 0, -0.358368, 0, 1, 0, 0.358368, 0, 0.93358, 6.18597, 103.461, -12.1361)
 
@@ -136,3 +139,27 @@ stream = ExtResource("3_mud4v")
 volume_db = 50.0
 unit_size = 20.0
 autoplay = true
+
+[node name="Light" type="Node" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7378, 104.71, -21.8968)
+light_color = Color(0.632068, 0.251153, 0, 1)
+light_size = 0.202
+light_specular = 0.0
+omni_range = 1.629
+omni_attenuation = 0.438
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.22908, 104.304, -30.0728)
+visible = false
+light_color = Color(0.632068, 0.251153, 0, 1)
+light_specular = 0.0
+shadow_enabled = true
+omni_range = 1.629
+omni_attenuation = 0.438
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.659221, -0.671171, -0.339053, 0.740822, 0.502414, 0.44583, -0.128883, -0.545078, 0.82842, 4.82696, 107.124, 0)
+light_color = Color(0.215902, 0.215902, 0.215902, 1)
+light_energy = 0.3
