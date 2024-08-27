@@ -137,7 +137,7 @@ shape = SubResource("BoxShape3D_shrun")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.974, 102.401, -12.81)
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_3lv6i")]
-transform = Transform3D(0.93358, 0, -0.358368, 0, 1, 0, 0.358368, 0, 0.93358, 6.30378, 103.461, -14.1074)
+transform = Transform3D(0.93358, 0, -0.358368, 0, 1, 0, 0.358368, 0, 0.93358, 6.30378, 102.942, -14.1074)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_mud4v")
