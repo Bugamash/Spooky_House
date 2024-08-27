@@ -1,0 +1,112 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwwbgqwmp044j"]
+
+[ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_06qjd"]
+[ext_resource type="FontFile" uid="uid://bre3hqne1tu8y" path="res://Assets/UI/Font/Under Rock (DEMO).ttf" id="2_ji7ah"]
+[ext_resource type="FontFile" uid="uid://n27lvge1eb0i" path="res://Assets/UI/Font/MelvinsoneRegular-d9mvR.otf" id="3_c4awn"]
+[ext_resource type="Texture2D" uid="uid://coh1udcwoy2a7" path="res://Assets/UI/Background_menu.jpg" id="4_kw3yj"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_17stb"]
+load_path = "res://.godot/imported/Background_menu.jpg-60bc4b61564a33b46a61168f23746853.ctex"
+
+[node name="Main_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_06qjd")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -384.0
+offset_top = -636.0
+offset_right = 384.0
+offset_bottom = 636.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_17stb")
+stretch_mode = 3
+
+[node name="BackgroundMenu" type="Sprite2D" parent="TextureRect"]
+position = Vector2(2890, 705)
+texture = ExtResource("4_kw3yj")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="separator" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.998814, 0.977169, 0.923699, 1)
+theme_override_colors/font_shadow_color = Color(0.419813, 0.419813, 0.419813, 1)
+theme_override_colors/font_outline_color = Color(0.12859, 0.17249, 0.231519, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_ji7ah")
+theme_override_font_sizes/font_size = 120
+text = "Spooky House
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 45
+alignment = 1
+
+[node name="separator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 64)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_c4awn")
+theme_override_font_sizes/font_size = 31
+text = "PLAY
+"
+
+[node name="separator3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Options" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 64)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_c4awn")
+theme_override_font_sizes/font_size = 31
+text = "OPTIONS
+"
+
+[node name="separator4" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 64)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_c4awn")
+theme_override_font_sizes/font_size = 31
+text = "QUIT
+"
