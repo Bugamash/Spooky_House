@@ -19,17 +19,13 @@ config/icon="res://icon.svg"
 
 buses/default_bus_layout=""
 
-[autoload]
-
-CsgToolkitAutoload="*res://addons/csg_toolkit/scripts/csg_toolkit_config.gd"
-
 [display]
 
 window/size/mode=3
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/blender_godot_pipeline/plugin.cfg", "res://addons/csg_toolkit/plugin.cfg")
+enabled=PackedStringArray("res://addons/blender_godot_pipeline/plugin.cfg")
 
 [input]
 

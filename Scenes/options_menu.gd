@@ -2,15 +2,16 @@ class_name optionsMenu
 extends Control
 
 
-@onready var exit_options: Button = $MarginContainer/VBoxContainer/exit_options as Button
+@onready var exit_options = $MarginContainer/VBoxContainer/exit_options as Button
 
 
-signal exit_options_menu
 
-func _ready() -> void:
+
+
+func _ready():
 	exit_options.button_down.connect(on_exit_options_pressed)
-	set_process(false)
 
-func on_exit_options_pressed()-> void:
-	exit_options_menu.emit()
-	set_process(false)
+
+
+func on_exit_options_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")

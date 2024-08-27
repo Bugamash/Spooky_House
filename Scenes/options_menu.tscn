@@ -44,3 +44,5 @@ size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("1_nn3mo")
 theme_override_font_sizes/font_size = 32
 text = "EXIT"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/exit_options" to="." method="_on_exit_options_pressed"]

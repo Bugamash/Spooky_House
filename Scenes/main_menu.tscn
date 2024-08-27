@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bwwbgqwmp044j"]
+[gd_scene load_steps=6 format=3 uid="uid://bwwbgqwmp044j"]
 
 [ext_resource type="Script" path="res://Scenes/main_menu.gd" id="1_06qjd"]
 [ext_resource type="FontFile" uid="uid://bre3hqne1tu8y" path="res://Assets/UI/Font/Under Rock (DEMO).ttf" id="2_ji7ah"]
 [ext_resource type="FontFile" uid="uid://n27lvge1eb0i" path="res://Assets/UI/Font/MelvinsoneRegular-d9mvR.otf" id="3_c4awn"]
 [ext_resource type="Texture2D" uid="uid://coh1udcwoy2a7" path="res://Assets/UI/Background_menu.jpg" id="4_kw3yj"]
-[ext_resource type="Script" path="res://Scenes/options_menu.gd" id="5_jex4l"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_17stb"]
 load_path = "res://.godot/imported/Background_menu.jpg-60bc4b61564a33b46a61168f23746853.ctex"
@@ -111,9 +110,3 @@ theme_override_fonts/font = ExtResource("3_c4awn")
 theme_override_font_sizes/font_size = 31
 text = "QUIT
 "
-
-[node name="optionsMenu" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-script = ExtResource("5_jex4l")
