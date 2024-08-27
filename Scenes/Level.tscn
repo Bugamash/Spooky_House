@@ -147,19 +147,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7378, 104.71, -21.8968)
 light_color = Color(0.632068, 0.251153, 0, 1)
 light_size = 0.202
 light_specular = 0.0
-omni_range = 1.629
-omni_attenuation = 0.438
-
-[node name="OmniLight3D2" type="OmniLight3D" parent="Light"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.22908, 104.304, -30.0728)
-visible = false
-light_color = Color(0.632068, 0.251153, 0, 1)
-light_specular = 0.0
 shadow_enabled = true
 omni_range = 1.629
 omni_attenuation = 0.438
 
+[node name="OmniLight3D2" type="OmniLight3D" parent="Light"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.36083, 104.413, -30.0728)
+light_color = Color(0.632068, 0.251153, 0, 1)
+light_specular = 0.0
+shadow_enabled = true
+shadow_bias = 0.55
+shadow_normal_bias = 0.0
+distance_fade_enabled = true
+omni_range = 1.3
+omni_attenuation = 1.88
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.659221, -0.671171, -0.339053, 0.740822, 0.502414, 0.44583, -0.128883, -0.545078, 0.82842, 4.82696, 107.124, 0)
 light_color = Color(0.215902, 0.215902, 0.215902, 1)
-light_energy = 0.3
+light_energy = 0.2
