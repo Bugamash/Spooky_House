@@ -1,0 +1,138 @@
+[gd_scene load_steps=18 format=3 uid="uid://canllvum7afrs"]
+
+[ext_resource type="PackedScene" uid="uid://bqwa1p5arkl7b" path="res://Assets/ppppioiii.glb" id="1_p3olw"]
+[ext_resource type="PackedScene" uid="uid://cayvn82kbvy80" path="res://Scenes/Player.tscn" id="2_3lv6i"]
+[ext_resource type="AudioStream" uid="uid://bsye3c8o7po2p" path="res://Audio/vibrating-in-the-wind.mp3" id="3_mud4v"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qk688"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+sky_energy_multiplier = 0.9
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_rk34g"]
+sky_material = SubResource("ProceduralSkyMaterial_qk688")
+
+[sub_resource type="Environment" id="Environment_n7n8a"]
+background_mode = 2
+sky = SubResource("Sky_rk34g")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qyp4h"]
+size = Vector3(29.5802, 0.164429, 29.418)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mqxia"]
+size = Vector3(26.7961, 0.113, 15.7025)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qci50"]
+size = Vector3(2.06549, 0.116699, 6.75775)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ja3kq"]
+size = Vector3(1.11023, 0.327026, 2.17773)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_plstt"]
+size = Vector3(19.2471, 0.301758, 6.66357)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0j8vb"]
+size = Vector3(2.7644, 0.288452, 5.5517)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a7m3x"]
+size = Vector3(1.16003, 0.32251, 4.28598)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1l2av"]
+size = Vector3(1.10413, 0.191277, 5.40552)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4qnon"]
+size = Vector3(1.21057, 0.290324, 1.81836)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lefkv"]
+size = Vector3(2.84155, 0.210175, 1.28564)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_shrun"]
+size = Vector3(1.35211, 0.0964355, 1.3374)
+
+[node name="Map" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_n7n8a")
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.59767, 102.408, -4.07637)
+skeleton = NodePath("../CSGCombiner3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1134, 0.0648651, -19.1693)
+shape = SubResource("BoxShape3D_qyp4h")
+
+[node name="UpperFloor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.59767, 102.408, -4.07637)
+skeleton = NodePath("../CSGCombiner3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="UpperFloor"]
+disable_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="UpperFloor/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.4987, 3.09634, -26.1912)
+shape = SubResource("BoxShape3D_mqxia")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="UpperFloor/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.31647, 3.11121, -14.9849)
+shape = SubResource("BoxShape3D_qci50")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="UpperFloor/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.725561, 3.03277, -12.6957)
+shape = SubResource("BoxShape3D_ja3kq")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="UpperFloor/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1237, 3.03989, -14.9681)
+shape = SubResource("BoxShape3D_plstt")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="UpperFloor/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.1054, 3.0155, -15.5601)
+shape = SubResource("BoxShape3D_0j8vb")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="UpperFloor/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.087, 3.00158, -16.1949)
+shape = SubResource("BoxShape3D_a7m3x")
+
+[node name="Stairs" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.59767, 102.408, -4.07637)
+skeleton = NodePath("../CSGCombiner3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Stairs"]
+disable_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stairs/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.767825, -0.640659, 0, 0.640659, 0.767825, 0.70601, 1.30585, -16.2397)
+shape = SubResource("BoxShape3D_1l2av")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Stairs/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 0.758839, -0.651278, 0, 0.651278, 0.758839, 26.0238, 2.5302, -13.4796)
+shape = SubResource("BoxShape3D_4qnon")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Stairs/StaticBody3D"]
+transform = Transform3D(0.741812, -0.670608, 0, 0.670608, 0.741812, 0, 0, 0, 1, 24.1547, 0.918716, -12.1358)
+shape = SubResource("BoxShape3D_lefkv")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Stairs/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.932, 1.90872, -12.1618)
+shape = SubResource("BoxShape3D_shrun")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="ppppioiii" parent="CSGCombiner3D" instance=ExtResource("1_p3olw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.974, 102.401, -12.81)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.546267, -0.817958, -0.180382, -0.836386, -0.544313, -0.064668, -0.0452885, 0.186195, -0.981468, -7.36414, 100, -29)
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_3lv6i")]
+transform = Transform3D(0.93358, 0, -0.358368, 0, 1, 0, 0.358368, 0, 0.93358, 6.18597, 103.461, -12.1361)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_mud4v")
+volume_db = 50.0
+unit_size = 20.0
+autoplay = true

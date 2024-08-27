@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cayvn82kbvy80"]
+
+[ext_resource type="Script" path="res://Scenes/player.gd" id="1_ny54s"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nttjo"]
+radius = 0.303981
+height = 1.75332
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5d4uf"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_y6mwb"]
+material = SubResource("StandardMaterial3D_5d4uf")
+radius = 0.26
+height = 1.65
+
+[node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("CAMERA_CONTROLLER")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.347174, 0.735783, 0)
+script = ExtResource("1_ny54s")
+TILT_LOWER_LIMIT = null
+TILT_UPPER_LIMIT = null
+CAMERA_CONTROLLER = NodePath("CameraController/Camera3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.081, 0.231224, 0)
+shape = SubResource("CapsuleShape3D_nttjo")
+
+[node name="PlaceholderMesh" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("CapsuleMesh_y6mwb")
+
+[node name="CameraController" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.137411, 0.59113, 0)
+
+[node name="Camera3D" type="Camera3D" parent="CameraController"]

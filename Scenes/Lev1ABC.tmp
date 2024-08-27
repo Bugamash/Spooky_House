@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://canllvum7afrs"]
+
+[ext_resource type="PackedScene" uid="uid://bt0rdbq4vmv57" path="res://Assets/ppppioiii.glb.glb" id="1_1ju1o"]
+[ext_resource type="PackedScene" uid="uid://cayvn82kbvy80" path="res://Scenes/Player.tscn" id="2_3lv6i"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qk688"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+sky_energy_multiplier = 0.9
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_rk34g"]
+sky_material = SubResource("ProceduralSkyMaterial_qk688")
+
+[sub_resource type="Environment" id="Environment_n7n8a"]
+background_mode = 2
+sky = SubResource("Sky_rk34g")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mqxia"]
+size = Vector3(29.8693, 0.378357, 29.5525)
+
+[node name="Map" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_n7n8a")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.59767, 102.408, -4.07637)
+skeleton = NodePath("../CSGCombiner3D")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1658, -0.0206223, -19.2556)
+shape = SubResource("BoxShape3D_mqxia")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="ppppioiii_glb" parent="CSGCombiner3D" instance=ExtResource("1_1ju1o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.974, 102.401, -12.81)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.546267, -0.817958, -0.180382, -0.836386, -0.544313, -0.064668, -0.0452885, 0.186195, -0.981468, -7.36414, 100, -29)
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_3lv6i")]
+transform = Transform3D(0.93358, 0, -0.358368, 0, 1, 0, 0.358368, 0, 0.93358, 6.18597, 103.461, -12.1361)
+TILT_LOWER_LIMIT = -1.5708
+TILT_UPPER_LIMIT = 1.5708
