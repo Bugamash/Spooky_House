@@ -30,3 +30,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.137411, 0.59113, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraController"]
 fov = 42.0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0416422, 0.0584042)
+light_energy = 0.185
+omni_range = 6.0

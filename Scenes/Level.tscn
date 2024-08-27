@@ -1,15 +1,16 @@
 [gd_scene load_steps=18 format=3 uid="uid://canllvum7afrs"]
 
-[ext_resource type="PackedScene" uid="uid://bqwa1p5arkl7b" path="res://Assets/props/ppppioiii.glb" id="1_p3olw"]
+[ext_resource type="PackedScene" uid="uid://o5yf7pcfcx3e" path="res://Assets/props/ppppioiii.glb" id="1_p3olw"]
 [ext_resource type="PackedScene" uid="uid://cayvn82kbvy80" path="res://Scenes/Player.tscn" id="2_3lv6i"]
 [ext_resource type="AudioStream" uid="uid://bsye3c8o7po2p" path="res://Audio/vibrating-in-the-wind.mp3" id="3_mud4v"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kdsyy"]
-sky_top_color = Color(0, 0, 0, 1)
-sky_horizon_color = Color(0.298168, 0.0862672, 0.0120385, 1)
-sky_curve = 0.0891906
-ground_bottom_color = Color(0, 0, 0, 1)
-ground_horizon_color = Color(0.0993556, 0.0169204, 0.000240822, 1)
+sky_top_color = Color(0.0638158, 0.00116975, 0, 1)
+sky_horizon_color = Color(0.31345, 0.0340263, 6.01634e-08, 1)
+sky_curve = 0.0375
+ground_bottom_color = Color(0.071293, 0.00269564, 0, 1)
+ground_horizon_color = Color(0.133762, 0.00253716, 0, 1)
+ground_curve = 0.0180251
 
 [sub_resource type="Sky" id="Sky_m3ngn"]
 sky_material = SubResource("ProceduralSkyMaterial_kdsyy")
@@ -22,7 +23,15 @@ ambient_light_sky_contribution = 0.99
 ambient_light_energy = 4.49
 tonemap_mode = 2
 ssr_enabled = true
+sdfgi_enabled = true
+sdfgi_read_sky_light = false
 sdfgi_bounce_feedback = 1.0
+sdfgi_cascades = 1
+glow_enabled = true
+glow_hdr_luminance_cap = 247.75
+fog_light_color = Color(0, 0, 0, 1)
+fog_light_energy = 7.43
+fog_sun_scatter = 0.08
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qyp4h"]
 size = Vector3(29.5802, 0.164429, 29.418)
@@ -132,7 +141,7 @@ shape = SubResource("BoxShape3D_shrun")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.974, 102.401, -12.81)
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_3lv6i")]
-transform = Transform3D(0.93358, 0, -0.358368, 0, 1, 0, 0.358368, 0, 0.93358, 6.18597, 103.461, -12.1361)
+transform = Transform3D(0.93358, 0, -0.358368, 0, 1, 0, 0.358368, 0, 0.93358, 6.30378, 103.461, -14.1074)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_mud4v")
@@ -140,19 +149,26 @@ volume_db = 50.0
 unit_size = 20.0
 autoplay = true
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.659221, -0.671171, -0.339053, 0.740822, 0.502413, 0.445829, -0.128883, -0.545078, 0.82842, 4.82696, 107.124, 0)
+light_color = Color(0.215902, 0.215902, 0.215902, 1)
+light_energy = 0.1
+
 [node name="Light" type="Node" parent="."]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.7378, 104.71, -21.8968)
+visible = false
 light_color = Color(0.632068, 0.251153, 0, 1)
 light_size = 0.202
 light_specular = 0.0
 shadow_enabled = true
 omni_range = 1.629
-omni_attenuation = 0.438
+omni_attenuation = 0.801
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Light"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.36083, 104.413, -30.0728)
+visible = false
 light_color = Color(0.632068, 0.251153, 0, 1)
 light_specular = 0.0
 shadow_enabled = true
@@ -161,8 +177,3 @@ shadow_normal_bias = 0.0
 distance_fade_enabled = true
 omni_range = 1.3
 omni_attenuation = 1.88
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.659221, -0.671171, -0.339053, 0.740822, 0.502414, 0.44583, -0.128883, -0.545078, 0.82842, 4.82696, 107.124, 0)
-light_color = Color(0.215902, 0.215902, 0.215902, 1)
-light_energy = 0.2
