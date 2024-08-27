@@ -29,9 +29,11 @@ sdfgi_bounce_feedback = 1.0
 sdfgi_cascades = 1
 glow_enabled = true
 glow_hdr_luminance_cap = 247.75
-fog_light_color = Color(0, 0, 0, 1)
+fog_light_color = Color(0.187176, 0.187176, 0.187176, 1)
 fog_light_energy = 7.43
 fog_sun_scatter = 0.08
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.1824
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qyp4h"]
 size = Vector3(29.5802, 0.164429, 29.418)
