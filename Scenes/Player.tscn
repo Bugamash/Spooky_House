@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cayvn82kbvy80"]
+[gd_scene load_steps=6 format=3 uid="uid://cayvn82kbvy80"]
 
 [ext_resource type="Script" path="res://Scenes/player.gd" id="1_ny54s"]
+[ext_resource type="PackedScene" uid="uid://b7c4equd8a1hl" path="res://Scenes/pause_menu.tscn" id="2_qlfel"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nttjo"]
 radius = 0.303981
@@ -35,3 +36,5 @@ fov = 42.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0416422, 0.0584042)
 light_energy = 0.185
 omni_range = 6.0
+
+[node name="Pause_Menu" parent="." instance=ExtResource("2_qlfel")]

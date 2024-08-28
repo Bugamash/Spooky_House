@@ -19,12 +19,16 @@ var _camera_rotation : Vector3
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _unhandled_input(event):
+	
+	if event.is_action_pressed("pause"):
+		$Pause_Menu.Paused()  
 	_mouse_input = event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED
 	if _mouse_input:
 		_rotation_input = -event.relative.x * MOUSE_SENSITIVITY
 		_tilt_input = -event.relative.y * MOUSE_SENSITIVITY
 		print(Vector2(_rotation_input,_tilt_input))
-		
+	
+	
 func _update_camera(delta):
 	
 	# Rotation camera using euler rotation#
@@ -47,6 +51,8 @@ func _update_camera(delta):
 func _input(event):
 	if event.is_action_pressed("exit"):
 		get_tree().quit()
+		
+		
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
