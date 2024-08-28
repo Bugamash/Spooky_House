@@ -1,11 +1,102 @@
-[gd_scene load_steps=4 format=3 uid="uid://baxaqcf35vn0y"]
+[gd_scene load_steps=8 format=3 uid="uid://b7c4equd8a1hl"]
 
+[ext_resource type="Shader" path="res://Scenes/blur.gdshader" id="1_i6ngc"]
 [ext_resource type="FontFile" uid="uid://n27lvge1eb0i" path="res://Assets/UI/Font/MelvinsoneRegular-d9mvR.otf" id="1_msew5"]
 [ext_resource type="Script" path="res://Scenes/pause_menu.gd" id="1_xy14w"]
-[ext_resource type="Texture2D" uid="uid://coh1udcwoy2a7" path="res://Assets/UI/Background_menu.jpg" id="2_5nvtj"]
 
-[node name="Pause_Menu" type="Control"]
-layout_mode = 3
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j7hk1"]
+shader = ExtResource("1_i6ngc")
+shader_parameter/blur = 0.0
+shader_parameter/brightness = 0.2
+
+[sub_resource type="Animation" id="Animation_hblkw"]
+resource_name = "Unpause"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/blur")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/brightness")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_p7win"]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/blur")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [0.0, 2.5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/brightness")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.3),
+"transitions": PackedFloat32Array(0.5, 0.5, 1),
+"update": 0,
+"values": [0.2, 0.2, 0.6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_byo4u"]
+_data = {
+"RESET": SubResource("Animation_p7win"),
+"Unpause": SubResource("Animation_hblkw")
+}
+
+[node name="Pause_Menu" type="ColorRect"]
+process_mode = 3
+modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_j7hk1")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -13,16 +104,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xy14w")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_5nvtj")
-
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -30,44 +112,59 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(512, 256)
 layout_mode = 2
-alignment = 1
 
-[node name="pauseMenu" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("1_msew5")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 30
 text = "PAUSE MENU"
+horizontal_alignment = 1
 
-[node name="resume" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="resume" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("1_msew5")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 20
 text = "RESUME"
 
-[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Control2" type="Control" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Control3" type="Control" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Control4" type="Control" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Control5" type="Control" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="mainMenu" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="main_menu" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("1_msew5")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 20
 text = "MAIN MENU"
+
+[node name="volume" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("1_msew5")
+theme_override_font_sizes/font_size = 20
+text = "VOLUME"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_byo4u")
+}
+autoplay = "Unpause"

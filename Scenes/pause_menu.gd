@@ -1,15 +1,18 @@
-class_name pauseMenu
-extends Control
-
-@onready var resume: Button = $MarginContainer/VBoxContainer/resume as Button
-@onready var main_menu: Button = $MarginContainer/VBoxContainer/mainMenu as Button
+extends ColorRect
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	resume.button_down.connect(on_resume_pressed)
+@onready var resume: Button = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/resume
+@onready var main_menu: Button = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/main_menu
+@onready var volume: Button = $CenterContainer/PanelContainer/MarginContainer/VBoxContainer/volume
+@onready var animator: AnimationPlayer = $AnimationPlayer
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func Unpaused():
+	animator.play("Unpause")
+	get_tree().paused = false
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+func Paused():
+	animator.play("Pause")
+	get_tree().paused = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
