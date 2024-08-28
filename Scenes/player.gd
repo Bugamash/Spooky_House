@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 
 const SPEED = 2.6
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 0
 
 ##Mouse Movement Settings##
 var _mouse_input : bool = false
@@ -18,7 +18,7 @@ var _camera_rotation : Vector3
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-func _unhandled_input(event):
+func _unhandled_input(event:InputEvent) -> void:
 	
 	if event.is_action_pressed("pause"):
 		$Pause_Menu.Paused()  
