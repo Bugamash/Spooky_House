@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://uatk66c5u4wh"]
+[gd_scene load_steps=5 format=3 uid="uid://uatk66c5u4wh"]
 
 [ext_resource type="Script" path="res://Scenes/options_menu.gd" id="1_1s73s"]
 [ext_resource type="FontFile" uid="uid://n27lvge1eb0i" path="res://Assets/UI/Font/MelvinsoneRegular-d9mvR.otf" id="1_nn3mo"]
 [ext_resource type="Texture2D" uid="uid://coh1udcwoy2a7" path="res://Assets/UI/Background_menu.jpg" id="2_l8drj"]
+[ext_resource type="AudioStream" uid="uid://8s6lqk1nja3r" path="res://Audio/SCREAM_SECRETS_MUSIC1.wav" id="4_ilvga"]
 
 [node name="Options_menu" type="Control"]
 layout_mode = 3
@@ -84,4 +85,37 @@ text = "MUTE"
 [node name="CheckBox" type="CheckBox" parent="MarginContainer/VBoxContainer2"]
 layout_mode = 2
 
+[node name="separator" type="Control" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="separator2" type="Control" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="separator3" type="Control" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_nn3mo")
+theme_override_font_sizes/font_size = 20
+text = "RESOLUTION"
+
+[node name="Resolution" type="OptionButton" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+item_count = 3
+popup/item_0/text = "1920x1080"
+popup/item_1/text = "1600x900"
+popup/item_1/id = 1
+popup/item_2/text = "1280x720"
+popup/item_2/id = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ilvga")
+volume_db = -40.083
+autoplay = true
+
 [connection signal="value_changed" from="MarginContainer/VBoxContainer2/volume" to="." method="_on_volume_value_changed"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer2/CheckBox" to="." method="_on_mute_toggled"]
+[connection signal="toggled" from="MarginContainer/VBoxContainer2/CheckBox" to="." method="_on_check_box_toggled"]
+[connection signal="item_selected" from="MarginContainer/VBoxContainer2/Resolution" to="." method="_on_resolution_item_selected"]
