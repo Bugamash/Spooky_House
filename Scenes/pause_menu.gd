@@ -7,6 +7,9 @@ extends ColorRect
 @onready var animator: AnimationPlayer = $AnimationPlayer
 
 
+func _ready() -> void:
+	resume.pressed.connect(Unpaused)
+
 func Unpaused():
 	animator.play("Unpause")
 	get_tree().paused = false
