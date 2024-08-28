@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://coh1udcwoy2a7" path="res://Assets/UI/Background_menu.jpg" id="4_kw3yj"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_17stb"]
-load_path = "res://.godot/imported/Background_menu.jpg-60bc4b61564a33b46a61168f23746853.ctex"
 
 [node name="Main_Menu" type="Control"]
 layout_mode = 3

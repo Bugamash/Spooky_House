@@ -20,8 +20,8 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _unhandled_input(event:InputEvent) -> void:
 	
-	if event.is_action_pressed("pause"):
-		$Pause_Menu.Paused()  
+	#if event.is_action_pressed("pause"):
+		#$Pause_Menu.Paused()  
 	_mouse_input = event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED
 	if _mouse_input:
 		_rotation_input = -event.relative.x * MOUSE_SENSITIVITY
