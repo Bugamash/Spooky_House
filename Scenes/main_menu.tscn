@@ -62,7 +62,7 @@ theme_override_colors/font_outline_color = Color(0.12859, 0.17249, 0.231519, 1)
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_ji7ah")
 theme_override_font_sizes/font_size = 120
-text = "Spooky House
+text = "House of shadows
 "
 horizontal_alignment = 1
 vertical_alignment = 1

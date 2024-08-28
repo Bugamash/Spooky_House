@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://canllvum7afrs"]
 
-[ext_resource type="PackedScene" uid="uid://o5yf7pcfcx3e" path="res://Assets/props/ppppioiii.glb" id="1_p3olw"]
+[ext_resource type="PackedScene" uid="uid://djf0uhnrv16il" path="res://Assets/props/ppppioiii.glb" id="1_p3olw"]
 [ext_resource type="Texture2D" uid="uid://wilnds48fof5" path="res://Assets/shaders/moonless_golf_4k.exr" id="1_qdfht"]
 [ext_resource type="PackedScene" uid="uid://cayvn82kbvy80" path="res://Scenes/Player.tscn" id="2_3lv6i"]
 [ext_resource type="AudioStream" uid="uid://bsye3c8o7po2p" path="res://Audio/vibrating-in-the-wind.mp3" id="3_mud4v"]
