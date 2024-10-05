@@ -93,7 +93,7 @@ autoplay = true
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.659221, -0.671171, -0.339053, 0.740822, 0.502413, 0.445829, -0.128883, -0.545078, 0.82842, 4.82696, 107.124, 0)
 light_color = Color(0.215902, 0.215902, 0.215902, 1)
-light_energy = 0.05
+light_energy = 0.08
 
 [node name="Light" type="Node" parent="."]
 
