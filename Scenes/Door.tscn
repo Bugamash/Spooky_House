@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://uy7vj6owyke8"]
+
+[ext_resource type="Material" uid="uid://d3slvi1fik7d6" path="res://Materials/door.tres" id="1_5jxyy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_28yml"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_b0uyd"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6ptv6"]
+
+[node name="hinge" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.648217, 0, -0.805595)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(0.05, 0, 0, 0, 2.12, 0, 0, 0, 1.09, 0.00357723, -0.0418477, 0.594265)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_28yml")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+material_override = ExtResource("1_5jxyy")
+mesh = SubResource("BoxMesh_b0uyd")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(2.615, 0, -7.45058e-09, 0, 0.075, 0, 0, 0, 0.055, -0.0102681, 0, 0.356796)
+mesh = SubResource("BoxMesh_6ptv6")
