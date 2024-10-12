@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cayvn82kbvy80"]
+[gd_scene load_steps=6 format=3 uid="uid://cayvn82kbvy80"]
 
-[ext_resource type="Script" path="res://Scenes/player.gd" id="1_ny54s"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_ny54s"]
+[ext_resource type="Script" path="res://Scripts/ray_cast_3d.gd" id="2_g4a7o"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nttjo"]
 radius = 0.303981
@@ -30,6 +31,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.137411, 0.950486, 0)
 
 [node name="Camera3D" type="Camera3D" parent="CameraController"]
 fov = 42.0
+
+[node name="RayCast3D" type="RayCast3D" parent="CameraController/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.098, 0)
+script = ExtResource("2_g4a7o")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0416422, 0.0584042)

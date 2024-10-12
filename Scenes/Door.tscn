@@ -1,27 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://uy7vj6owyke8"]
+[gd_scene load_steps=10 format=3 uid="uid://uy7vj6owyke8"]
 
 [ext_resource type="Material" uid="uid://d3slvi1fik7d6" path="res://Materials/door.tres" id="1_5jxyy"]
+[ext_resource type="Script" path="res://Scripts/door.gd" id="1_mcdq6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_28yml"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_b0uyd"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_6ptv6"]
-
-[sub_resource type="Animation" id="Animation_7jawr"]
-resource_name = "open"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 1.5708, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_l20re"]
 length = 0.001
@@ -38,17 +24,50 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_7jawr"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5708, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wfpxn"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mgmj5"]
 _data = {
 "RESET": SubResource("Animation_l20re"),
+"close": SubResource("Animation_wfpxn"),
 "open": SubResource("Animation_7jawr")
 }
 
 [node name="hinge" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.648217, 0, -0.805595)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
+[node name="StaticBody3D" type="StaticBody3D" parent="." node_paths=PackedStringArray("animation_playerI")]
 transform = Transform3D(0.05, 0, 0, 0, 2.12, 0, 0, 0, 1.09, 0.00357723, -0.0418477, 0.594265)
+script = ExtResource("1_mcdq6")
+animation_playerI = NodePath("../AnimationPlayer")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_28yml")

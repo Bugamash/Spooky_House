@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" path="res://Scenes/blur.gdshader" id="1_i6ngc"]
 [ext_resource type="FontFile" uid="uid://n27lvge1eb0i" path="res://Assets/UI/Font/MelvinsoneRegular-d9mvR.otf" id="1_msew5"]
-[ext_resource type="Script" path="res://Scenes/pause_menu.gd" id="1_xy14w"]
+[ext_resource type="Script" path="res://Scripts/pause_menu.gd" id="1_xy14w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j7hk1"]
 shader = ExtResource("1_i6ngc")
