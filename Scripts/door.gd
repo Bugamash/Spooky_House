@@ -4,6 +4,7 @@ var isInteractable = true
 var toggle = false
 @export var animation_playerI : AnimationPlayer 
 
+@export var message = ""
 
 
 func interact():
@@ -17,4 +18,5 @@ func interact():
 	await get_tree().create_timer(1.0, false).timeout
 	isInteractable = true
 	
-	
+func show_message():
+		return message
