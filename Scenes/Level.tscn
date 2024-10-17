@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://wilnds48fof5" path="res://Assets/shaders/moonless_golf_4k.exr" id="1_qdfht"]
 [ext_resource type="PackedScene" uid="uid://cayvn82kbvy80" path="res://Scenes/Player.tscn" id="2_3lv6i"]
-[ext_resource type="PackedScene" uid="uid://dsk4h1k1wy2ix" path="res://Assets/props/guestHouse/guestHouse_V2.glb" id="2_ligda"]
-[ext_resource type="PackedScene" uid="uid://koes2sbmndcm" path="res://Assets/props/imports/Texte_v2.dae" id="3_kujr2"]
+[ext_resource type="PackedScene" uid="uid://i6al8f1bmhc" path="res://Assets/props/guestHouse/ppppioiii.glb" id="2_8a4mm"]
+[ext_resource type="PackedScene" uid="uid://koes2sbmndcm" path="res://Assets/props/blenderMap/Texte_v2.dae" id="3_kujr2"]
 [ext_resource type="AudioStream" uid="uid://bsye3c8o7po2p" path="res://Audio/vibrating-in-the-wind.mp3" id="3_mud4v"]
 [ext_resource type="PackedScene" uid="uid://uy7vj6owyke8" path="res://Scenes/Door.tscn" id="6_e0iks"]
 
@@ -73,7 +73,7 @@ shape = SubResource("BoxShape3D_shrun")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 
-[node name="guestHouse_V2" parent="CSGCombiner3D" instance=ExtResource("2_ligda")]
+[node name="guestHouse_V3" parent="CSGCombiner3D" instance=ExtResource("2_8a4mm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.974, 102.401, -12.81)
 
 [node name="CSGCombiner3D2" type="CSGCombiner3D" parent="."]
