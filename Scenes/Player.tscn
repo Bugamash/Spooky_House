@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cayvn82kbvy80"]
+[gd_scene load_steps=6 format=3 uid="uid://cayvn82kbvy80"]
 
-[ext_resource type="Script" path="res://Scenes/player.gd" id="1_ny54s"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_ny54s"]
+[ext_resource type="Script" path="res://Scripts/ray_cast_3d.gd" id="2_g4a7o"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nttjo"]
 radius = 0.303981
@@ -15,6 +16,7 @@ height = 1.65
 
 [node name="CharacterBody3D" type="CharacterBody3D" node_paths=PackedStringArray("CAMERA_CONTROLLER")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.347174, 0.735783, 0)
+collision_mask = 3
 script = ExtResource("1_ny54s")
 CAMERA_CONTROLLER = NodePath("CameraController/Camera3D")
 
@@ -31,7 +33,35 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.137411, 0.950486, 0)
 [node name="Camera3D" type="Camera3D" parent="CameraController"]
 fov = 42.0
 
+[node name="RayCast3D" type="RayCast3D" parent="CameraController/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.098, 0)
+collision_mask = 2
+script = ExtResource("2_g4a7o")
+
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0416422, 0.0584042)
 light_energy = 0.185
 omni_range = 6.0
+
+[node name="uiInt" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="uiInt"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Interaction"
+horizontal_alignment = 1

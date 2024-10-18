@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://koes2sbmndcm"
-path="res://.godot/imported/Texte_v2.dae-84d954a72b24a4083aa6392ff4d11f14.scn"
+uid="uid://beg0g3mxi07to"
+path="res://.godot/imported/guestHouse-collisionMapV2.dae-fc21d6a789d760441120d96305b968d2.scn"
 
 [deps]
 
-source_file="res://Assets/props/imports/Texte_v2.dae"
-dest_files=["res://.godot/imported/Texte_v2.dae-84d954a72b24a4083aa6392ff4d11f14.scn"]
+source_file="res://Assets/props/blenderMap/guestHouse-collisionMapV2.dae"
+dest_files=["res://.godot/imported/guestHouse-collisionMapV2.dae-fc21d6a789d760441120d96305b968d2.scn"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://uatk66c5u4wh"]
 
-[ext_resource type="Script" path="res://Scenes/options_menu.gd" id="1_1s73s"]
+[ext_resource type="Script" path="res://Scripts/options_menu.gd" id="1_1s73s"]
 [ext_resource type="FontFile" uid="uid://n27lvge1eb0i" path="res://Assets/UI/Font/MelvinsoneRegular-d9mvR.otf" id="1_nn3mo"]
 [ext_resource type="Texture2D" uid="uid://coh1udcwoy2a7" path="res://Assets/UI/Background_menu.jpg" id="2_l8drj"]
 [ext_resource type="AudioStream" uid="uid://8s6lqk1nja3r" path="res://Audio/SCREAM_SECRETS_MUSIC1.wav" id="4_ilvga"]
