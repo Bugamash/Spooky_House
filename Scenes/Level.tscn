@@ -1,10 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://canllvum7afrs"]
+[gd_scene load_steps=15 format=3 uid="uid://canllvum7afrs"]
 
 [ext_resource type="Texture2D" uid="uid://wilnds48fof5" path="res://Assets/shaders/moonless_golf_4k.exr" id="1_qdfht"]
 [ext_resource type="PackedScene" uid="uid://cayvn82kbvy80" path="res://Scenes/Player.tscn" id="2_3lv6i"]
-[ext_resource type="PackedScene" uid="uid://i6al8f1bmhc" path="res://Assets/props/guestHouse/ppppioiii.glb" id="2_8a4mm"]
-[ext_resource type="PackedScene" uid="uid://koes2sbmndcm" path="res://Assets/props/blenderMap/Texte_v2.dae" id="3_kujr2"]
+[ext_resource type="PackedScene" uid="uid://ce3rngylp3et6" path="res://Assets/props/guestHouse/guestHouse_V2.glb" id="2_nlid4"]
 [ext_resource type="AudioStream" uid="uid://bsye3c8o7po2p" path="res://Audio/vibrating-in-the-wind.mp3" id="3_mud4v"]
+[ext_resource type="PackedScene" uid="uid://beg0g3mxi07to" path="res://Assets/props/blenderMap/guestHouse-collisionMapV2.dae" id="3_opjon"]
 [ext_resource type="PackedScene" uid="uid://uy7vj6owyke8" path="res://Scenes/Door.tscn" id="6_e0iks"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3nwy5"]
@@ -43,6 +43,9 @@ size = Vector3(2.84155, 0.210175, 1.28564)
 [sub_resource type="BoxShape3D" id="BoxShape3D_shrun"]
 size = Vector3(1.35211, 0.0964355, 1.3374)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_jws7y"]
+size = Vector3(4.60382, 0.352112, 1)
+
 [node name="Map" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -71,14 +74,18 @@ shape = SubResource("BoxShape3D_lefkv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.932, 1.90872, -12.1618)
 shape = SubResource("BoxShape3D_shrun")
 
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Stairs/StaticBody3D"]
+transform = Transform3D(0.789759, -0.613417, 0, 0.613417, 0.789759, 0, 0, 0, 1, -4.36084, -1.56451, -24.9189)
+shape = SubResource("BoxShape3D_jws7y")
+
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
 
-[node name="guestHouse_V3" parent="CSGCombiner3D" instance=ExtResource("2_8a4mm")]
+[node name="guestHouse_V2" parent="CSGCombiner3D" instance=ExtResource("2_nlid4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.974, 102.401, -12.81)
 
 [node name="CSGCombiner3D2" type="CSGCombiner3D" parent="."]
 
-[node name="Texte_v2" parent="CSGCombiner3D2" instance=ExtResource("3_kujr2")]
+[node name="guestHouse-collisionMapV2" parent="CSGCombiner3D2" instance=ExtResource("3_opjon")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.974, 102.401, -12.81)
 visible = false
 
