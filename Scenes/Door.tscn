@@ -1,6 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://uy7vj6owyke8"]
+[gd_scene load_steps=10 format=3 uid="uid://pd0ksmbb1isj"]
 
-[ext_resource type="Material" uid="uid://d3slvi1fik7d6" path="res://Materials/door.tres" id="1_5jxyy"]
+[ext_resource type="Material" path="res://Materials/door.tres" id="1_5jxyy"]
 [ext_resource type="Script" path="res://Scripts/door.gd" id="1_mcdq6"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_28yml"]

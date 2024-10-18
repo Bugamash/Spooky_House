@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ce3rngylp3et6" path="res://Assets/props/guestHouse/guestHouse_V2.glb" id="2_nlid4"]
 [ext_resource type="AudioStream" uid="uid://bsye3c8o7po2p" path="res://Audio/vibrating-in-the-wind.mp3" id="3_mud4v"]
 [ext_resource type="PackedScene" uid="uid://beg0g3mxi07to" path="res://Assets/props/blenderMap/guestHouse-collisionMapV2.dae" id="3_opjon"]
-[ext_resource type="PackedScene" uid="uid://uy7vj6owyke8" path="res://Scenes/Door.tscn" id="6_e0iks"]
+[ext_resource type="PackedScene" path="res://Scenes/Door.tscn" id="6_e0iks"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_3nwy5"]
 panorama = ExtResource("1_qdfht")
